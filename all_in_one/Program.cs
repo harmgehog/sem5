@@ -1,14 +1,22 @@
 ﻿// все одномерные массивы одной программой и с возможностью выбора
 
+Console.Clear();
+Console.ForegroundColor = ConsoleColor.Green;
+
 // генерация массива
 int[] FillArray(int size, int minEdge, int maxEdge)
 {
     int[] arr = new int[size];
     for (int i = 0; i < size; i++) arr[i] = new Random().Next(minEdge, maxEdge + 1);
     Console.Write("Your new array: ");
+    ShowArray(arr);
+    return arr;
+}
+
+static void ShowArray(int[] arr)
+{
     foreach (int i in arr) Console.Write(String.Format(" {0,3}", i));
     Console.Write('\n');
-    return arr;
 }
 
 // и последний метод - перемешивание массива
@@ -20,8 +28,7 @@ static void Shuffle(int[] arr)
     (arr[a], arr[b]) = (arr[b], arr[a]);
     }
     Console.Write("A shuffled arr: ");
-    foreach (int i in arr) Console.Write(String.Format(" {0,3}", i));
-    Console.Write('\n');
+    ShowArray(arr);
 }
 // вывод в консоль количества четных
 static void CountOfEvens(int[] arr)
@@ -54,8 +61,12 @@ static void MultEdges(int[] arr)
     int size = arr.Length - 1;
     bool flag = size % 2 == 0;
     Console.Write("Products of ev: ");
-    for (int i = 0; i < size; i++, size--) Console.Write(String.Format(" {0,4}", arr[i] * arr[size]));
-    if (flag) Console.WriteLine(String.Format(" {0,4}", arr[arr.Length / 2 + 1])); else Console.WriteLine(" ");
+    for (int i = 0; i < size; i++, size--)
+    {
+        Console.Write(String.Format(" {0,4}", arr[i] * arr[size]));
+    }
+    if (flag) Console.WriteLine(String.Format(" {0,4}", arr[arr.Length / 2 + 1])); 
+    else Console.WriteLine(" ");
 }
 
 // инвертирование самого массива
@@ -64,8 +75,7 @@ static void InvertArray(int[] arr)
     int size = arr.Length - 1;
     for (int i = 0; i < size; i++, size--) (arr[i], arr[size]) = (arr[size], arr[i]);
     Console.Write("Inverted array: ");
-    foreach (int i in arr) Console.Write(String.Format(" {0,3}", i));
-    Console.Write('\n');
+    ShowArray(arr);
 }
 
 // сортировка массива
@@ -78,8 +88,7 @@ static void SortArray(int[] arr)
         (arr[i], arr[min]) = (arr[min], arr[i]);
     }
     Console.Write("A sorted array: ");
-    foreach (int i in arr) Console.Write(String.Format(" {0,3}", i));
-    Console.Write('\n');
+    ShowArray(arr);
 }
 
 // метод нахождения заданного числа в массиве
@@ -100,9 +109,8 @@ static void FindVallueArray(int[] arr, int value)
 static void InverseNumsArray(int[] arr)
 {
     for (int i = 0; i < arr.Length; arr[i] = -arr[i], i++) ;
-    Console.Write("Inverted value: ");
-    foreach (int i in arr) Console.Write(String.Format(" {0,3}", i));
-    Console.Write('\n');
+    Console.Write("Inverted vals in: ");
+    ShowArray(arr);
 }
 
 // метод подсчета суммы плюсов и минусов
