@@ -63,9 +63,9 @@ static void MultEdges(int[] arr)
     Console.Write("Products of ev: ");
     for (int i = 0; i < size; i++, size--)
     {
-        Console.Write(String.Format(" {0,4}", arr[i] * arr[size]));
+        Console.Write(String.Format(" {0,3}", arr[i] * arr[size]));
     }
-    if (flag) Console.WriteLine(String.Format(" {0,4}", arr[arr.Length / 2 + 1])); 
+    if (flag) Console.WriteLine(String.Format(" {0,3}", arr[arr.Length / 2 + 1])); 
     else Console.WriteLine(" ");
 }
 
@@ -145,7 +145,7 @@ int[] NewArray()
 int[] arr = NewArray();
 static void Help()
 {
-    Console.WriteLine("Сhoose digit of action, where:\n\n0 or 'stop' - to 'STOP' or break the program\n\n1 - Invert Numbers in Array\n2 - Sort of Array\n3 - Reverse Array\n4 - Product of Extreme values\n5 - Find exact value in Array\n6 - Write Sum of pluses & sum of minuses\n7 - Show Max&min\n8 - Show Sum of values by odd indicies\n9 - Show count of evens\n10 - to shuffle array\n11 or 'new' - to create a new Array\n12 or any input - renew script & show this HELP\n\n");
+    Console.WriteLine("\nСhoose digit of action, where:\n\n0 or 'stop' - to 'STOP' or break the program\n\n1 - Invert Numbers in Array\n2 - Sort of Array\n3 - Reverse Array\n4 - Product of Extreme values\n5 - Find exact value in Array\n6 - Write Sum of pluses & sum of minuses\n7 - Show Max&min\n8 - Show Sum of values by odd indicies\n9 - Show count of evens\n10 - to shuffle array\n11 or 'new' - to create a new Array\n12 or any input - renew script & show this HELP\n");
 }
 Help();
 
